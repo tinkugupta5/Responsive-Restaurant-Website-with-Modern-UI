@@ -4,7 +4,9 @@ import {images, data} from '../../constants';
 import './SpecialMenu.css';
 
 const SpecialMenu = () => (
+
   <div className='app__specialMenu flex__center section__padding' id='menu'>
+
     <div className="app__specialMenu-title">
       <SubHeading tittle="Menu that fits you palatte"/>
       <h1 className='headtext__cormorant'>Todays Special</h1>
@@ -17,8 +19,9 @@ const SpecialMenu = () => (
       {/* left div */}
       <div className="app__specialMenu_menu_items">
         {data.wines.map((wine,index) => (
-          <p>{wine.title}</p>
-        ) )}
+          <MenuItem key={wine.title + index} title={wine.price} tags={wine.tags}/>
+          // <p>{wine.title}</p>
+        ))}
       </div>
       {/* center image */}
           <div className="app__specialMenu-menu_img">
@@ -33,10 +36,19 @@ const SpecialMenu = () => (
           <p>{cocktail.title}</p>
         ) )}
       </div>
-      
-
     </div>
+
+    <div style={{marginTop: '15px'}}>
+      <button type='button' className='custom__button'>View More</button>
   </div>
+
+
+  </div>
+
+  
+
+
+  
 );
 
 export default SpecialMenu;
